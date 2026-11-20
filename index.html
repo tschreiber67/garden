@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#163b2d">
+  <title>Garden Guide | Find your growing possibilities</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">✳</span><span>garden<span class="brand-light">guide</span></span></div>
+    <div class="header-note">A thoughtful start to your next garden</div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">YOUR GARDEN, YOUR CONDITIONS</div>
+        <h1>Grow something <em>wonderful.</em></h1>
+        <p>Explore plants that fit your space, sunlight, and watering preferences. Personalized local planting dates are coming in a later version.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true"><span class="sun">☀</span><span class="sprout">🌱</span><span class="leaf">✿</span></div>
+    </section>
+
+    <section class="workspace" aria-label="Garden explorer">
+      <aside class="filters">
+        <div class="section-tag">01 / YOUR GROWING SPACE</div>
+        <h2>Tell us about your garden</h2>
+        <form id="garden-form">
+          <label for="zip">US ZIP code</label>
+          <input id="zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="e.g. 85001" pattern="[0-9]{5}" aria-describedby="zip-help">
+          <small id="zip-help">Saved for future local climate matching; not used to rank results yet.</small>
+
+          <label for="month">When do you want to plant?</label>
+          <select id="month" name="month"></select>
+          <small>Timing is not yet factored into the candidate matches.</small>
+
+          <label for="category">Plant category</label>
+          <select id="category" name="category"><option value="all">All home gardening</option><option value="vegetable">Vegetables</option><option value="herb">Herbs</option><option value="flower">Flowers</option><option value="shrub">Shrubs</option><option value="tree">Trees</option><option value="native">Native plants</option></select>
+
+          <label for="sun">Sun exposure</label>
+          <select id="sun" name="sun"><option value="any">Not sure / flexible</option><option value="full">Full sun (6+ hours)</option><option value="part">Partial sun (3–6 hours)</option><option value="shade">Shade (under 3 hours)</option></select>
+
+          <label for="water">Water availability</label>
+          <select id="water" name="water"><option value="any">Not sure / flexible</option><option value="low">Low</option><option value="medium">Moderate</option><option value="high">High</option></select>
+
+          <label for="soil">Soil type</label>
+          <select id="soil" name="soil"><option value="any">Not sure</option><option value="loam">Loam</option><option value="sand">Sandy</option><option value="clay">Clay</option></select>
+
+          <label for="space">Growing space</label>
+          <select id="space" name="space"><option value="any">Any / undecided</option><option value="ground">In-ground</option><option value="raised">Raised bed</option><option value="container">Container</option></select>
+
+          <button type="reset" class="reset">Reset selections</button>
+        </form>
+      </aside>
+
+      <section class="results" aria-live="polite">
+        <div class="results-top"><div><div class="section-tag">02 / EXPLORE POSSIBILITIES</div><h2>Plants to explore</h2><p id="summary"></p></div><div class="result-actions"><input id="search" type="search" placeholder="Search plants…" aria-label="Search plants"><select id="sort" aria-label="Sort results"><option value="match">Best site match</option><option value="name">A to Z</option></select></div></div>
+        <div class="notice"><strong>Prototype guidance:</strong> These are site-condition candidates, not verified local planting recommendations. Check local extension advice before planting.</div>
+        <div id="cards" class="cards"></div>
+        <div id="empty" class="empty" hidden>No plants match those filters. Try a different category or broader growing conditions.</div>
+      </section>
+    </section>
+  </main>
+  <footer><span>Garden Guide · Starter dataset / Session 1</span><a href="SOURCES.md">Sources & limitations</a></footer>
+  <dialog id="detail"><button class="close" id="close-detail" aria-label="Close details">×</button><div id="detail-content"></div></dialog>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
